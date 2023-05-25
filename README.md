@@ -105,7 +105,7 @@ Newsletter Subscription:
 - Ability to manage newsletter subscriptions within the user account section. `(N2H)`
 
 Subscription Services:
-- Provide information about different subscription options available for users.
+- Provide information about different subscription options available for users. `(N2H)`
 - Display details about each subscription plan, such as benefits, pricing, and duration. `(N2H)`
 - Allow users to select and subscribe to a desired subscription plan. `(N2H)`
 - Integration with a payment gateway to enable secure subscription transactions. `(N2H)`
