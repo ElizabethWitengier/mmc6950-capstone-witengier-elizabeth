@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     case "POST":
       try {
         // Handle signup request
-        const { email, password, name } = req.body;
+        const { email, password, last_name, first_name } = req.body;
 
         // Check if the email is already registered
         const existingUser = await User.findOne({ email });
@@ -25,7 +25,12 @@ export default async function handler(req, res) {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Create a new user
-        const newUser = new User({ email, password: hashedPassword, name });
+        const newUser = new User({
+          email,
+          password: hashedPassword,
+          last_name,
+          first_name,
+        });
         await newUser.save();
 
         // Return a success message or user data
