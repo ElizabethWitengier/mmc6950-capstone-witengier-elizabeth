@@ -32,10 +32,15 @@ export function ModalRoot() {
 
 export function Modal(props) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="modal-dialog mt-10">
-        <div className="modal-content">{props.children}</div>
+    <div>
+      <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div className="modal-dialog mt-10">
+          <div className="modal-content bg-white rounded-lg p-4">
+            {props.children}
+          </div>
+        </div>
       </div>
+      <div className="fixed inset-0 z-40 bg-black/30" />
     </div>
   );
 }
@@ -45,7 +50,9 @@ export function ModalBody(props) {
 }
 
 export function ModalHeader(props) {
-  return <div className="modal-header">{props.children}</div>;
+  return (
+    <div className="modal-header text-xl font-semibold">{props.children}</div>
+  );
 }
 
 export function ModalFooter(props) {
