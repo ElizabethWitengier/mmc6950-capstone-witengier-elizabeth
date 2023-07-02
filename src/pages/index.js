@@ -1,10 +1,12 @@
+import Feature from "@/components/Feature";
+import Hero from "@/components/Hero";
 import React from "react";
 
 const Home = () => {
   return (
     <div>
-      {" "}
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Hero />
+      <Feature />
     </div>
   );
 };

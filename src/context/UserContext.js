@@ -23,8 +23,14 @@ const UserContextProvider = ({ children }) => {
     };
     getUser();
   }, []);
+  const signOut = () => {
+    localStorage.removeItem("user");
+    setUser(undefined);
+  };
   return (
-    <UserContext.Provider value={{ user, setUser, isAuthenticated: !!user }}>
+    <UserContext.Provider
+      value={{ user, setUser, isAuthenticated: !!user, signOut }}
+    >
       {children}
     </UserContext.Provider>
   );

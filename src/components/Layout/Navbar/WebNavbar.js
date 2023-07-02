@@ -7,8 +7,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
   const [isDropdownOpen3, setDropdownOpen3] = useState(false);
   const [isDropdownOpen4, setDropdownOpen4] = useState(false);
 
-  const { isAuthenticated, user } = useUserContext();
-  console.log(user);
+  const { isAuthenticated, signOut } = useUserContext();
   const toggleDropdown1 = () => {
     setDropdownOpen1(!isDropdownOpen1);
   };
@@ -33,7 +32,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
             onClick={toggleDropdown1}
             className="flex items-center relative justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
           >
-            Dropdown 1{" "}
+            Discover{" "}
             <svg
               className="w-5 h-5 ml-1"
               aria-hidden="true"
@@ -62,7 +61,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Dashboard
+                    Art Therapy
                   </a>
                 </li>
                 <li>
@@ -70,7 +69,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Settings
+                    Meditation
                   </a>
                 </li>
                 <li>
@@ -78,18 +77,10 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Earnings
+                    Yoga
                   </a>
                 </li>
               </ul>
-              <div className="py-1">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                >
-                  Sign out
-                </a>
-              </div>
             </div>
           )}
         </li>
@@ -99,7 +90,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
             onClick={toggleDropdown2}
             className="flex items-center relative justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
           >
-            Dropdown 2{" "}
+            Learn{" "}
             <svg
               className="w-5 h-5 ml-1"
               aria-hidden="true"
@@ -128,7 +119,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Option 1
+                    Our Story
                   </a>
                 </li>
                 <li>
@@ -136,7 +127,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Option 2
+                    Articles
                   </a>
                 </li>
                 <li>
@@ -144,18 +135,10 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Option 3
+                    FAQs
                   </a>
                 </li>
               </ul>
-              <div className="py-1">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                >
-                  Sign out
-                </a>
-              </div>
             </div>
           )}
         </li>
@@ -165,7 +148,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
             onClick={toggleDropdown3}
             className="flex items-center relative justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
           >
-            Dropdown 3{" "}
+            Shop{" "}
             <svg
               className="w-5 h-5 ml-1"
               aria-hidden="true"
@@ -194,7 +177,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Dashboard
+                    Products
                   </a>
                 </li>
                 <li>
@@ -202,26 +185,10 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Earnings
+                    Memberships
                   </a>
                 </li>
               </ul>
-              <div className="py-1">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                >
-                  Sign out
-                </a>
-              </div>
             </div>
           )}
         </li>
@@ -240,7 +207,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
             className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
             aria-current="page"
           >
-            Carts
+            Cart
           </a>
         </li>
         <li>
@@ -265,17 +232,25 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                     {" "}
                     <li>
                       <button className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        Account Info
+                        Your Account
                       </button>
                     </li>{" "}
                     <li>
                       <button className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        Membership
+                        Your Membership
                       </button>
                     </li>
                     <li>
                       <button className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        Categories
+                        Your Categories
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={signOut}
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Sign Out
                       </button>
                     </li>
                   </>
