@@ -27,7 +27,7 @@ const SignUpModal = ({ close }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("api/user/signup", formData);
+      await axios.post("/api/user/signup", formData);
       ModalService.open(LoginModal);
     } catch (error) {
       setReqErrorMessage(error.response.data.message);

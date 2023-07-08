@@ -2,11 +2,14 @@ import Button from "@/components/common/Button";
 import LearnMore from "@/components/common/LearnMore";
 import PageHeader from "@/components/common/PageHeader";
 import VideoCard from "@/components/common/VideoCard";
+import { useUserContext } from "@/context/UserContext";
 import axios from "axios";
 import React from "react";
 
 const Yoga = ({ allYoga }) => {
-  console.log(allYoga);
+  const { allFav } = useUserContext();
+
+  console.log(allYoga, allFav);
   return (
     <div>
       <PageHeader title={"Discover Yoga"} desc={"labisdbvaidkaks"} />
@@ -63,6 +66,7 @@ const Yoga = ({ allYoga }) => {
             imgSrc={item.snippet.thumbnails.default.url}
             videoId={item.id.videoId}
             duration={item.duration}
+            isFav={allFav.some((favItem) => favItem.id === item.id.videoId)}
           />
         ))}
       </div>

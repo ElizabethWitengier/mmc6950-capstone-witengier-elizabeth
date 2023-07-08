@@ -1,4 +1,5 @@
 import { useUserContext } from "@/context/UserContext";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
@@ -56,30 +57,9 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                 className="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownNavbarLink1"
               >
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Art Therapy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Meditation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Yoga
-                  </a>
-                </li>
+                <SingleListItem text={"Art Therapy"} />
+                <SingleListItem text={"Meditation"} />
+                <SingleListItem text={"Yoga"} link="/yoga" />
               </ul>
             </div>
           )}
@@ -114,30 +94,9 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                 className="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownNavbarLink2"
               >
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Our Story
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Articles
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    FAQs
-                  </a>
-                </li>
+                <SingleListItem text={"Our Story"} />
+                <SingleListItem text={"Articles"} />
+                <SingleListItem text={"FAQs"} />
               </ul>
             </div>
           )}
@@ -172,44 +131,16 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                 className="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownNavbarLink1"
               >
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Products
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Memberships
-                  </a>
-                </li>
+                <SingleListItem text={"Products"} />
+                <SingleListItem text={"Memberships"} />
               </ul>
             </div>
           )}
         </li>
-        <li>
-          <a
-            href="#"
-            className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
-            aria-current="page"
-          >
-            Fav
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
-            aria-current="page"
-          >
-            Cart
-          </a>
-        </li>
+        <SingleListItem text={"Fav"} />
+
+        <SingleListItem text={"Cart"} />
+
         <li>
           <button
             id="dropdownNavbarLink4"
@@ -229,50 +160,15 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
               >
                 {isAuthenticated ? (
                   <>
-                    {" "}
-                    <li>
-                      <button className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        Your Account
-                      </button>
-                    </li>{" "}
-                    <li>
-                      <button className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        Your Membership
-                      </button>
-                    </li>
-                    <li>
-                      <button className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        Your Categories
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        onClick={signOut}
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Sign Out
-                      </button>
-                    </li>
+                    <SingleListItem text={"Your Account"} />
+                    <SingleListItem text={"Your Membership"} />
+                    <SingleListItem text={"Your Categories"} />
+                    <SingleListItem text={"Sign Out"} onClick={signOut} />
                   </>
                 ) : (
                   <>
-                    {" "}
-                    <li>
-                      <button
-                        onClick={openLoginModal}
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Login
-                      </button>
-                    </li>{" "}
-                    <li>
-                      <button
-                        onClick={openSignUpModal}
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        SignUp
-                      </button>
-                    </li>
+                    <SingleListItem text={"Login"} onClick={openLoginModal} />
+                    <SingleListItem text={"Signup"} onClick={openSignUpModal} />
                   </>
                 )}
               </ul>
@@ -283,5 +179,16 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
     </div>
   );
 };
+
+const SingleListItem = ({ text, link, onClick }) => (
+  <li onClick={onClick}>
+    <Link
+      href={link || "/"}
+      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+    >
+      {text}
+    </Link>
+  </li>
+);
 
 export default WebNavbar;

@@ -19,7 +19,7 @@ const LoginModal = ({ close }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("api/user/login", formData);
+      const res = await axios.post("/api/user/login", formData);
       setUser(res.data.user);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       setTimeout(() => {
