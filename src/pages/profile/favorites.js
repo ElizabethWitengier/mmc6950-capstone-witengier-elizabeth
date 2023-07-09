@@ -8,7 +8,7 @@ const Favorites = () => {
   const { allFav, user } = useUserContext();
 
   if (!user?._id) {
-    return "404 not found";
+    return "Please Login! You are not logged in";
   }
   return (
     <div>

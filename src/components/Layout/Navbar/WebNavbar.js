@@ -57,8 +57,8 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                 className="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownNavbarLink1"
               >
-                <SingleListItem text={"Art Therapy"} />
-                <SingleListItem text={"Meditation"} />
+                <SingleListItem text={"Art Therapy"} link="/coming-soon" />
+                <SingleListItem text={"Meditation"} link="/meditation" />
                 <SingleListItem text={"Yoga"} link="/yoga" />
               </ul>
             </div>
@@ -94,9 +94,9 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                 className="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownNavbarLink2"
               >
-                <SingleListItem text={"Our Story"} />
-                <SingleListItem text={"Articles"} />
-                <SingleListItem text={"FAQs"} />
+                <SingleListItem text={"Our Story"} link="/our-story" />
+                <SingleListItem text={"Articles"} link="/coming-soon" />
+                <SingleListItem text={"FAQs"} link="/coming-soon" />
               </ul>
             </div>
           )}
@@ -131,15 +131,21 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
                 className="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownNavbarLink1"
               >
-                <SingleListItem text={"Products"} />
-                <SingleListItem text={"Memberships"} />
+                <SingleListItem text={"Products"} link="/coming-soon" />
+                <SingleListItem text={"Memberships"} link="/coming-soon" />
               </ul>
             </div>
           )}
         </li>
-        <SingleListItem text={"Fav"} />
+        <SingleListItem
+          link="/profile/favorites"
+          text={<span class="material-symbols-outlined">favorite</span>}
+        />
 
-        <SingleListItem text={"Cart"} />
+        <SingleListItem
+          link="/coming-soon"
+          text={<span class="material-symbols-outlined">shopping_cart</span>}
+        />
 
         <li>
           <button
@@ -147,7 +153,7 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
             onClick={toggleDropdown4}
             className="flex items-center relative justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
           >
-            User
+            <span class="material-symbols-outlined">person</span>
           </button>
           {isDropdownOpen4 && (
             <div
@@ -160,9 +166,15 @@ const WebNavbar = ({ openSignUpModal, openLoginModal }) => {
               >
                 {isAuthenticated ? (
                   <>
-                    <SingleListItem text={"Your Account"} />
-                    <SingleListItem text={"Your Membership"} />
-                    <SingleListItem text={"Your Categories"} />
+                    <SingleListItem text={"Your Account"} link="/profile" />
+                    <SingleListItem
+                      text={"Your Membership"}
+                      link="/profile#your_membership"
+                    />
+                    <SingleListItem
+                      text={"Your Categories"}
+                      link="/profile#your_categories"
+                    />
                     <SingleListItem text={"Sign Out"} onClick={signOut} />
                   </>
                 ) : (
