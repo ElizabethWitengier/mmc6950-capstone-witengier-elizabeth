@@ -58,11 +58,6 @@ const Footer = () => {
               </svg>
             </div>
 
-            <p class="mt-4 max-w-xs text-gray-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
-              cupiditate quae nam molestias.
-            </p>
-
             <ul class="mt-8 flex gap-6">
               <li>
                 <Link
@@ -184,7 +179,7 @@ const Footer = () => {
 
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
             <div>
-              <p class="font-medium text-gray-900">Services</p>
+              <p class="font-medium text-gray-900">Discover</p>
 
               <ul class="mt-6 space-y-4 text-sm">
                 <li>
@@ -192,7 +187,7 @@ const Footer = () => {
                     href="#"
                     class="text-gray-700 transition hover:opacity-75"
                   >
-                    1on1 Coaching
+                    Art Therapy
                   </Link>
                 </li>
 
@@ -201,7 +196,7 @@ const Footer = () => {
                     href="#"
                     class="text-gray-700 transition hover:opacity-75"
                   >
-                    Company Review
+                    Meditation
                   </Link>
                 </li>
 
@@ -210,32 +205,14 @@ const Footer = () => {
                     href="#"
                     class="text-gray-700 transition hover:opacity-75"
                   >
-                    Accounts Review
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75"
-                  >
-                    HR Consulting
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75"
-                  >
-                    SEO Optimisation
+                    Yoga
                   </Link>
                 </li>
               </ul>
             </div>
 
             <div>
-              <p class="font-medium text-gray-900">Company</p>
+              <p class="font-medium text-gray-900">Learn</p>
 
               <ul class="mt-6 space-y-4 text-sm">
                 <li>
@@ -243,7 +220,7 @@ const Footer = () => {
                     href="#"
                     class="text-gray-700 transition hover:opacity-75"
                   >
-                    About
+                    Our Story
                   </Link>
                 </li>
 
@@ -252,31 +229,7 @@ const Footer = () => {
                     href="#"
                     class="text-gray-700 transition hover:opacity-75"
                   >
-                    Meet the Team
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75"
-                  >
-                    Accounts Review
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <p class="font-medium text-gray-900">Helpful Links</p>
-
-              <ul class="mt-6 space-y-4 text-sm">
-                <li>
-                  <Link
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75"
-                  >
-                    Contact
+                    Articles
                   </Link>
                 </li>
 
@@ -288,13 +241,45 @@ const Footer = () => {
                     FAQs
                   </Link>
                 </li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-medium text-gray-900">Shop</p>
+
+              <ul class="mt-6 space-y-4 text-sm">
+                <li>
+                  <Link
+                    href="#"
+                    class="text-gray-700 transition hover:opacity-75"
+                  >
+                    Art Products
+                  </Link>
+                </li>
 
                 <li>
                   <Link
                     href="#"
                     class="text-gray-700 transition hover:opacity-75"
                   >
-                    Live Chat
+                    Meditation Products{" "}
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="#"
+                    class="text-gray-700 transition hover:opacity-75"
+                  >
+                    Yoga Products
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    class="text-gray-700 transition hover:opacity-75"
+                  >
+                    Memberships
                   </Link>
                 </li>
               </ul>
@@ -303,7 +288,7 @@ const Footer = () => {
         </div>
 
         <p class="text-xs text-gray-500">
-          &copy; 2022. Company Name. All rights reserved.
+          &copy; 2023 Selovea. All rights reserved.
         </p>
       </div>
     </footer>
