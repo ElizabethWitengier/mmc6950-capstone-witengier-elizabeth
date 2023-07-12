@@ -14,7 +14,17 @@ function formatDuration(durationString) {
 
 export default async function handler(req, res) {
   try {
-    const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=how+to+do+${req.query.pose}+yoga+pose&maxResults=15&safeSearch=moderate&key=${process.env.YOUTUBE_KEY}`;
+    const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=how+to+do+${
+      req.query.pose
+    }+yoga+pose${
+      req.query.complexity == "undefined" || req.query.complexity == undefined
+        ? ""
+        : `+for+${req.query.complexity}`
+    }&maxResults=15${
+      req.query.length == "undefined" || req.query.length == undefined
+        ? ""
+        : `&videoDuration=${req.query.length}`
+    }&safeSearch=moderate&key=${process.env.YOUTUBE_KEY}`;
     const searchResponse = await axios.get(searchUrl);
 
     const videoIds = searchResponse.data.items.map((item) => item.id.videoId);
@@ -33,7 +43,7 @@ export default async function handler(req, res) {
 
     res.status(200).json(combinedResults);
   } catch (error) {
-    console.error("Error fetching search results:", error);
+    console.error("Error fetching search results:", error.response.data.error);
     res.status(500).json({ error: "Failed to fetch search results" });
   }
 }

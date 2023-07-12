@@ -3,62 +3,116 @@ import LearnMore from "@/components/common/LearnMore";
 import PageHeader from "@/components/common/PageHeader";
 import VideoCard from "@/components/common/VideoCard";
 import { useUserContext } from "@/context/UserContext";
+import { yogaTypes } from "@/lib/yoga";
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
+const durations = [
+  {
+    title: "<4",
+    value: "short",
+  },
+  {
+    title: "4-20",
+    value: "medium",
+  },
+  {
+    title: ">20",
+    value: "long",
+  },
+];
 
 const Yoga = ({ allYoga }) => {
+  const [yoga, setYoga] = useState(allYoga || []);
+  const [selectedOptions, setSelectedOptions] = useState({
+    searchValue: "",
+    type: "none",
+    length: "none",
+    complexity: "none",
+  });
   const { allFav } = useUserContext();
 
-  console.log(allYoga, allFav);
+  const handleChangeApi = async () => {
+    const searchType = `${selectedOptions.searchValue || "all"}${
+      selectedOptions.type === "none" ? "" : "+" + selectedOptions.type
+    }?complexity=${
+      selectedOptions.complexity === "none"
+        ? undefined
+        : selectedOptions.complexity
+    }&length=${
+      selectedOptions.length === "none" ? undefined : selectedOptions.length
+    }`;
+    const res = await axios.get(
+      `http://localhost:3000/api/youtube/yoga/${searchType}`
+    );
+    setYoga(res.data);
+  };
+
+  const handleChange = (name, value) => {
+    setSelectedOptions((prev) => ({ ...prev, [name]: value }));
+    console.log(selectedOptions);
+    setTimeout(async () => await handleChangeApi(), 500);
+  };
+
   return (
     <div>
       <PageHeader title={"Discover Yoga"} desc={"labisdbvaidkaks"} />
       <div className="flex items-center justify-around container my-8 mx-auto">
+        {/* Search */}
         <div>
-          <input type="text" placeholder="Search..." />
+          <input
+            value={selectedOptions.searchValue}
+            name="searchValue"
+            type="text"
+            placeholder="Search..."
+            onChange={(e) => handleChange(e.target.name, e.target.value)}
+          />
         </div>
+        {/* Select Type */}
         <div>
-          <select>
-            <option disabled selected>
+          <select onChange={(e) => handleChange("type", e.target.value)}>
+            <option selected value="none">
               Type of Yoga
             </option>
-            {[1, 2, 3, 4, 5].map((item) => (
-              <option key={item} value={item}>
-                {item}
+            {yogaTypes.map(({ title, value }) => (
+              <option key={value} value={value}>
+                {title}
               </option>
             ))}
           </select>
         </div>
+        {/* Select Length */}
         <div>
-          <select>
-            <option disabled selected>
+          <select onChange={(e) => handleChange("length", e.target.value)}>
+            <option selected value="none">
               Length of video
             </option>
-            {[1, 2, 3, 4, 5].map((item) => (
-              <option key={item} value={item}>
-                {item}
+            {durations.map(({ title, value }) => (
+              <option key={value} value={value}>
+                {title}
               </option>
             ))}
           </select>
         </div>
+        {/* Select Complexity */}
         <div>
-          <select>
-            <option disabled selected>
+          <select onChange={(e) => handleChange("complexity", e.target.value)}>
+            <option selected value="none">
               Complexity Level
             </option>
-            {[1, 2, 3, 4, 5].map((item) => (
-              <option key={item} value={item}>
+            {["Beginner", "Intermediate", "Advanced"].map((item) => (
+              <option key={item} value={item.toLowerCase()}>
                 {item}
               </option>
             ))}
           </select>
         </div>
+        {/* Button */}
         <div>
           <Button primary>Learn More</Button>
         </div>
       </div>
       <div className="flex flex-wrap justify-between items-center gap-4 container mx-auto">
-        {allYoga.map((item) => (
+        {yoga.map((item) => (
           <VideoCard
             key={item.id.videoId}
             title={item.snippet.title}

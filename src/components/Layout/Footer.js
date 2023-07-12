@@ -184,7 +184,7 @@ const Footer = () => {
               <ul class="mt-6 space-y-4 text-sm">
                 <li>
                   <Link
-                    href="#"
+                    href="/coming-soon"
                     class="text-gray-700 transition hover:opacity-75"
                   >
                     Art Therapy
